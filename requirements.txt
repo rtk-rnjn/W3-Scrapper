@@ -1,0 +1,6 @@
+bs4==0.0.1
+html-to-json==2.0.0
+html2image=2.0.3
+lxml==4.9.2
+requests==2.31.0
+imgkit==1.2.3
