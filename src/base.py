@@ -5,7 +5,7 @@ Main module for the w3schools scraper, contains the Base class.
 from __future__ import annotations
 
 import logging
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING
 
 import requests
 from bs4 import BeautifulSoup
@@ -15,7 +15,6 @@ if TYPE_CHECKING:
 
     from bs4.element import NavigableString, Tag
 
-from html2image import Html2Image
 from html_to_json import convert_tables
 
 from .endpoints import EXCLUDE_TOPICS
