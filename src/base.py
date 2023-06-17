@@ -72,17 +72,17 @@ class Base:
         with open(filename, "w+", encoding="utf-8") as file:
             file.write(soup.prettify() if full else self.main_div.prettify())  # type: ignore
 
-    def to_image(self, soup: BeautifulSoup | None) -> str:
+    def to_image(self, soup: BeautifulSoup | None, *, filename: str) -> str:
         import imgkit
 
         if soup is None:
             soup = self.soup
         try:
-            filename = f"files/{soup.name}.{' '.join(soup['class'])}{self.__counter}.jpg"
+            filename = filename or f"/files/{soup.name}.{' '.join(soup['class'])}{self.__counter}.jpg"
             imgkit.from_string(
                 soup.prettify(),
                 filename,
-                css=["lib/w3schools32.css"],
+                css=["/lib/w3schools32.css"],
                 # automatic resize image
                 options={
                     "format": "png",
